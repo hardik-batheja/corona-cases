@@ -1,0 +1,31 @@
+{% extends 'basic/base.html' %}
+
+{% block blockname %}
+    {% if records %}
+    <div class="table-responsive-lg">
+        <table class="table table-dark">
+            <thead>
+                <th>ID</th>
+                <th>Country</th>
+                <th>Country Code</th>
+                <th>Total Cases</th>
+                <th>Recovered Cases</th>
+                <th>Death Cases</th>
+            </thead>
+            {% for row in records %}
+            <tr>
+                <td>{{row.id}}</td>
+                <td>{{row.country}}</td>
+                <td>{{row.countrycode}}</td>
+                <td>{{row.tcases}}</td>
+                <td>{{row.rcases}}</td>
+                <td>{{row.dcases}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+    {% else %}
+    <h1 class="text-white">No records found</h1>
+    {% endif %}
+{% endblock blockname %}
+    
